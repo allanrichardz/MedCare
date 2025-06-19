@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,13 +17,15 @@
 <body>
   <h1>Agendamento de Consulta</h1>
 
-  <form action="#" method="post">
+  <a href="consultar_agendamentos.php">Visualizar Agendamentos</a><br><br>
+
+  <form action="processar_agendamento.php" method="post">
     <label for="especialidade">Especialidade:</label><br>
     <select id="especialidade" name="especialidade" required>
       <option value="">Selecione...</option>
-      <option value="clinico">Clínico Geral</option>
-      <option value="clinico">Endócrino</option>
-      <option value="clinico">Fisioteria</option>
+      <option value="clinico_geral">Clínico Geral</option>
+      <option value="endocrino">Endócrino</option>
+      <option value="fisioterapia">Fisioterapia</option>
       <option value="cardiologia">Cardiologia</option>
       <option value="dermatologia">Dermatologia</option>
       <option value="pediatria">Pediatria</option>
