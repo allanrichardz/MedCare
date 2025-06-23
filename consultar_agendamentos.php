@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,6 +7,7 @@
 </head>
 <body>
     <a href="agendamento.php">Voltar</a><br>
+
     <?php
     session_start();
 
@@ -15,15 +15,17 @@
         header("Location: login.php");
         exit;
     }
-    ?>
 
-    <?php
     $usuario_id = $_SESSION['usuario_id'];
 
+    // Conectar ao banco
+    $conn = mysqli_connect("localhost", "root", "", "medcare");
+    if (!$conn) {
+        die("Erro de conexão: " . mysqli_connect_error());
+    }
 
     $sql = "SELECT * FROM agendamentos WHERE usuario_id = $usuario_id";
-    $resultado = mysqli_query($conexao, $sql);
-
+    $resultado = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($resultado) > 0) {
         echo "<h1>Seus Agendamentos</h1>";
@@ -35,6 +37,8 @@
     } else {
         echo "<p>Você ainda não possui agendamentos.</p>";
     }
+
+    mysqli_close($conn);
     ?>
 </body>
 </html>

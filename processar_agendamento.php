@@ -4,8 +4,7 @@ session_start();
 if (!isset($_SESSION['usuario_id'])) {
     die("Usuário não autenticado.");
 }
-print_r($usuario_id    = $_SESSION['usuario_id']);
-var_dump($usuario_id    = $_SESSION['usuario_id']);
+
 $usuario_id    = $_SESSION['usuario_id'];
 $especialidade = $_POST['especialidade'];
 $data          = $_POST['data'];
@@ -25,6 +24,7 @@ $sql = "INSERT INTO agendamentos (usuario_id, especialidade, data, hora)
 
 if (mysqli_query($conn, $sql)) {
     echo "Agendamento realizado com sucesso!";
+    header('Location: consultar_agendamentos.php');
 } else {
     echo "Erro ao agendar: " . mysqli_error($conn);
 }
