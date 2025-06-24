@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) === 1) {
         $usuario = mysqli_fetch_assoc($result);
         $_SESSION['usuario_id'] = $usuario['id']; // SALVA O ID REAL DO USUÁRIO
-        header("Location: agendamento.php");
+        $_SESSION['usuario_nome'] = $usuario['nome'];
+        header("Location: ../inicial.php");
         exit;
     } else {
         $erro = "Email ou senha incorretos.";

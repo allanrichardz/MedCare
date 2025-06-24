@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Login - MedCare</h1>
 
-    <!-- Exibe a mensagem de erro, se houver -->
     <?php if (isset($erro)) echo "<p style='color:red;'>$erro</p>"; ?>
 
-    <!-- Formulário de login -->
-    <form action="processar_login.php" method="post">
+    <form action="processar/processar_login.php" method="post">
         <label for="email">Email:</label><br>
         <input type="text" name="email" id="email" required><br><br>
 
@@ -21,5 +20,6 @@
 
         <input type="submit" value="Entrar">
     </form>
+    <script src="js/script.js"></script>
 </body>
 </html>
