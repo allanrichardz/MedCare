@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Cadastro de Usuário - MedCare</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Cadastro - MedCare</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Cadastro de Usuário</h1>
+<h1>Cadastro</h1>
+<form action="processar/processar_cadastro.php" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
 
-  <form action="processar/processar_cadastro.php" method="post">
-    <label for="nome">Nome:</label><br>
-    <input type="text" id="nome" name="nome" required><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="senha" required>
 
-    <label for="senha">Senha:</label><br>
-    <input type="password" id="senha" name="senha" required><br><br>
-
-    <button type="submit">Cadastrar</button>
-  </form>
-  <script src="js/script.js"></script>
+    <input type="submit" value="Cadastrar">
+</form>
+<script src="js/script.js"></script>
 </body>
 </html>

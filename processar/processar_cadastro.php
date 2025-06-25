@@ -13,7 +13,7 @@ VALUES (
 )";
 
 if (mysqli_query($conn, $sql)) {
-    header('Location: login.php');
+    header('Location: ../login.php');
 } else {
     echo "Erro ao cadastrar: " . mysqli_error($conn);
 }
