@@ -20,17 +20,22 @@ $resultado = mysqli_query($conn, $sql);
 <?php include 'navbar.php'; ?>
 <h1>Meus Agendamentos</h1>
 <?php
-if (mysqli_num_rows($resultado) > 0) {
-    while ($agendamento = mysqli_fetch_assoc($resultado)) {
-        echo "<div class='agendamento-item fade-in'>";
-        echo "<strong>Especialidade:</strong> " . htmlspecialchars($agendamento['especialidade']) . "<br>";
-        echo "<strong>Data:</strong> " . $agendamento['data'] . "<br>";
-        echo "<strong>Hora:</strong> " . $agendamento['hora'] . "";
-        echo "</div>";
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($agendamento = mysqli_fetch_assoc($resultado)) {
+            // Formatação da data
+            $data_formatada = date('d/m/Y', strtotime($agendamento['data']));
+            // Formatação da hora
+            $hora_formatada = date('H:i', strtotime($agendamento['hora']));
+        
+            echo "<div class='agendamento-item fade-in'>";
+            echo "<strong>Especialidade:</strong> " . htmlspecialchars($agendamento['especialidade']) . "<br>";
+            echo "<strong>Data:</strong> " . $data_formatada . "<br>";
+            echo "<strong>Hora:</strong> " . $hora_formatada;
+            echo "</div>";
+        }    
+    } else {
+        echo "<p>Você ainda não possui agendamentos.</p>";
     }
-} else {
-    echo "<p>Você ainda não possui agendamentos.</p>";
-}
 ?>
 <script src="js/script.js"></script>
 </body>

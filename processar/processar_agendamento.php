@@ -24,7 +24,7 @@ $sql = "INSERT INTO agendamentos (usuario_id, especialidade, data, hora)
 
 if (mysqli_query($conn, $sql)) {
     echo "Agendamento realizado com sucesso!";
-    header('Location: consultar_agendamentos.php');
+    header('Location: ../consultar_agendamentos.php');
 } else {
     echo "Erro ao agendar: " . mysqli_error($conn);
 }

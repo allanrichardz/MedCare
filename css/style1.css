@@ -1,0 +1,239 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #2b6cb0;
+    --secondary-blue: #3182ce;
+    --accent-teal: #319795;
+    --soft-blue: #ebf8ff;
+    --white: #ffffff;
+    --light-gray: #edf2f7;
+    --dark-gray: #2d3748;
+    --success-green: #38a169;
+    --error-red: #e53e3e;
+    --font-primary: 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--soft-blue), var(--white));
+    min-height: 100vh;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.navbar table {
+    width: 100%;
+}
+
+.navbar img.logo {
+    max-height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.navbar img.logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar h2 {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.navbar a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: var(--accent-teal);
+}
+
+/* ===== Estilo para o ícone de logout ===== */
+.logout-link {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logout-icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logout-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ===== FORMULÁRIOS ===== */
+form {
+    background: var(--white);
+    padding: 2rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary-blue);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary-blue);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+input[type="submit"],
+button {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    width: 100%;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-2px);
+}
+
+/* ===== AGENDAMENTOS LISTA ===== */
+.agendamento-item {
+    background: var(--white);
+    border-left: 4px solid var(--accent-teal);
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.agendamento-item strong {
+    color: var(--primary-blue);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #cbd5e0;
+    margin: 1rem 0;
+}
+
+/* ===== ALERTAS ===== */
+.alert {
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.alert-error {
+    background: #fed7d7;
+    color: var(--error-red);
+    border: 1px solid #feb2b2;
+}
+
+.alert-success {
+    background: #c6f6d5;
+    color: var(--success-green);
+    border: 1px solid #9ae6b4;
+}
+
+/* ===== BOTÕES HOME CENTRALIZADOS ===== */
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 1rem;
+}
+
+.home-buttons button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    .navbar h2 {
+        font-size: 1rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .agendamento-item {
+        margin: 0.5rem;
+    }
+
+    .home-buttons {
+        max-width: 90%;
+    }
+
+    .logout-icon {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.slide {
+    display: none;
+}

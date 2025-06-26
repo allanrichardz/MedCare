@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* ===== MEDCARE CSS STYLES ===== */
+
+/* Reset e configurações básicas */
 * {
     margin: 0;
     padding: 0;
@@ -6,203 +8,435 @@
 }
 
 :root {
-    --primary-blue: #2b6cb0;
-    --secondary-blue: #3182ce;
-    --accent-teal: #319795;
-    --soft-blue: #ebf8ff;
-    --white: #ffffff;
-    --light-gray: #edf2f7;
+    --primary-color: #2c5282;
+    --secondary-color: #4299e1;
+    --accent-color: #38b2ac;
+    --success-color: #48bb78;
+    --error-color: #f56565;
+    --warning-color: #ed8936;
+    --light-blue: #ebf8ff;
+    --light-gray: #f7fafc;
     --dark-gray: #2d3748;
-    --success-green: #38a169;
-    --error-red: #e53e3e;
-    --font-primary: 'Segoe UI', sans-serif;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-    font-family: var(--font-primary);
-    background: linear-gradient(135deg, var(--soft-blue), var(--white));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-gray) 100%);
     min-height: 100vh;
     color: var(--dark-gray);
     line-height: 1.6;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
-/* ===== NAVBAR ===== */
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ===== NAVBAR STYLES ===== */
 .navbar {
-    background: var(--white);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 1rem 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 3px solid var(--primary-blue);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .navbar table {
     width: 100%;
+    border-collapse: collapse;
 }
 
-.navbar img.logo {
-    max-height: 50px;
-    transition: transform 0.3s ease;
+.navbar td {
+    vertical-align: middle;
+    padding: 0.5rem;
 }
 
-.navbar img.logo:hover {
+.logo {
+    height: 50px;
+    width: auto;
+    transition: var(--transition);
+    border-radius: 8px;
+}
+
+.logo:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
-.navbar h2 {
-    color: var(--primary-blue);
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-right: 15px;
+.navbar p {
+    color: var(--white);
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 .navbar a {
-    color: var(--secondary-blue);
+    color: var(--white);
     text-decoration: none;
+    transition: var(--transition);
+    position: relative;
 }
 
 .navbar a:hover {
-    color: var(--accent-teal);
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(56, 178, 172, 0.5);
 }
 
-/* ===== Estilo para o ícone de logout ===== */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.saudacao {
+    color: var(--white);
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .logout-link {
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.logout-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(5deg) scale(1.1);
 }
 
 .logout-icon {
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    height: 24px;
+    width: 24px;
+    filter: brightness(0) invert(1);
 }
 
-.logout-icon:hover {
-    transform: scale(1.1);
+/* ===== TYPOGRAPHY ===== */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(44, 82, 130, 0.1);
 }
 
-/* ===== FORMULÁRIOS ===== */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+/* ===== FORM STYLES ===== */
 form {
     background: var(--white);
-    padding: 2rem;
-    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 500px;
     margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-top: 4px solid var(--primary-blue);
-    animation: fadeIn 0.5s ease forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+form:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
 label {
     display: block;
+    font-weight: 600;
+    color: var(--dark-gray);
     margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 4px;
+    margin-top: 1rem;
     font-size: 1rem;
 }
 
-input:focus,
-select:focus {
-    outline: none;
-    border-color: var(--secondary-blue);
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+label:first-of-type {
+    margin-top: 0;
 }
 
-input[type="submit"],
-button {
-    background: var(--primary-blue);
-    color: var(--white);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-weight: bold;
+input, select {
     width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--white);
+    font-family: inherit;
 }
 
-input[type="submit"]:hover,
-button:hover {
-    background: var(--secondary-blue);
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
     transform: translateY(-2px);
 }
 
-/* ===== AGENDAMENTOS LISTA ===== */
-.agendamento-item {
-    background: var(--white);
-    border-left: 4px solid var(--accent-teal);
-    padding: 1rem;
-    margin: 1rem auto;
-    max-width: 600px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border-radius: 4px;
-    animation: fadeIn 0.4s ease forwards;
+input:hover, select:hover {
+    border-color: var(--accent-color);
 }
 
-.agendamento-item strong {
-    color: var(--primary-blue);
+/* Placeholder styling */
+input::placeholder {
+    color: #a0aec0;
+    font-style: italic;
 }
 
-hr {
+/* Submit button styling */
+input[type="submit"] {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
     border: none;
-    height: 1px;
-    background: #cbd5e0;
-    margin: 1rem 0;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ===== ALERTAS ===== */
-.alert {
-    padding: 1rem;
-    margin: 1rem auto;
-    max-width: 400px;
-    text-align: center;
-    border-radius: 4px;
+input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
 }
 
-.alert-error {
-    background: #fed7d7;
-    color: var(--error-red);
-    border: 1px solid #feb2b2;
+input[type="submit"]:active {
+    transform: translateY(-1px);
 }
 
-.alert-success {
-    background: #c6f6d5;
-    color: var(--success-green);
-    border: 1px solid #9ae6b4;
+/* Button ripple effect */
+input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s, height 0.6s;
+    transform: translate(-50%, -50%);
 }
 
-/* ===== BOTÕES HOME CENTRALIZADOS ===== */
+input[type="submit"]:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== BUTTON STYLES ===== */
+button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    border: none;
+    padding: 1.2rem 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+/* ===== HOME BUTTONS ===== */
 .home-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 1.5rem;
     max-width: 400px;
-    margin: 4rem auto;
-    padding: 1rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
 }
 
 .home-buttons button {
-    width: 100%;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-/* ===== ANIMAÇÕES ===== */
+.home-buttons button:first-child {
+    background: linear-gradient(135deg, var(--success-color) 0%, var(--accent-color) 100%);
+}
+
+.home-buttons button:nth-child(2) {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.home-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.home-buttons button:hover::before {
+    left: 100%;
+}
+
+/* ===== ALERT STYLES ===== */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    border-left: 4px solid;
+}
+
+.alert::before {
+    content: '';
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #fed7d7, #fbb6ce);
+    color: #c53030;
+    border-left-color: var(--error-color);
+}
+
+.alert-error::before {
+    content: '⚠';
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+    color: #2f855a;
+    border-left-color: var(--success-color);
+}
+
+.alert-success::before {
+    content: '✓';
+}
+
+/* ===== AGENDAMENTO STYLES ===== */
+.agendamento-item {
+    background: var(--white);
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.agendamento-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+}
+
+.agendamento-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.agendamento-item strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.agendamento-item br {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -210,26 +444,267 @@ hr {
     }
 }
 
-/* ===== RESPONSIVO ===== */
-@media (max-width: 600px) {
-    .navbar h2 {
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.pulse {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* ===== LINK STYLES ===== */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+a:not(.navbar a):not(.logout-link)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+a:not(.navbar a):not(.logout-link):hover::after {
+    width: 100%;
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(44, 82, 130, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* ===== FORM VALIDATION ===== */
+input:invalid {
+    border-color: var(--error-color);
+}
+
+input:valid {
+    border-color: var(--success-color);
+}
+
+.field-error {
+    border-color: var(--error-color) !important;
+    box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1) !important;
+}
+
+.field-success {
+    border-color: var(--success-color) !important;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1) !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar table {
+        font-size: 0.9rem;
+    }
+
+    .navbar td {
+        padding: 0.25rem;
+    }
+
+    .saudacao {
         font-size: 1rem;
+    }
+
+    .logout-link {
+        margin-left: 0.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        margin: 1rem;
+        padding: 2rem;
+    }
+
+    .home-buttons {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .home-buttons button {
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .agendamento-item {
+        margin-bottom: 1rem;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar table {
+        font-size: 0.8rem;
+    }
+
+    .saudacao {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
     }
 
     form {
         padding: 1.5rem;
     }
 
-    .agendamento-item {
-        margin: 0.5rem;
+    input, select {
+        padding: 0.8rem;
     }
 
-    .home-buttons {
-        max-width: 90%;
+    .home-buttons button {
+        padding: 1rem;
+        font-size: 0.95rem;
     }
+}
 
-    .logout-icon {
-        height: 24px;
-        width: 24px;
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000080;
+        --secondary-color: #0066cc;
+        --error-color: #cc0000;
+        --success-color: #006600;
     }
 }
