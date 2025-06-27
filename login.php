@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Login - MedCare</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imagens/logo_azul.png" type="image/png">
 </head>
 <body>
     <h1>Login - MedCare</h1>

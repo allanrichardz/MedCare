@@ -11,6 +11,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <meta charset="UTF-8">
     <title>Agendar Consulta - MedCare</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imagens/logo_azul.png" type="image/png">
 </head>
 <body>
 <?php include 'navbar.php'; ?>

@@ -3,7 +3,7 @@
         <tr>
             <td>
                 <a href="inicial.php">
-                    <img src="imagens/logo.png" alt="MedCare" class="logo">
+                    <img src="imagens/logo_branco.png" alt="MedCare" class="logo">
                 </a>
             </td>
             <td>

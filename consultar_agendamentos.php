@@ -15,6 +15,7 @@ $resultado = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <title>Meus Agendamentos - MedCare</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imagens/logo_azul.png" type="image/png">
 </head>
 <body>
 <?php include 'navbar.php'; ?>

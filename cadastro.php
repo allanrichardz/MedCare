@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Cadastro - MedCare</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imagens/logo_azul.png" type="image/png">
 </head>
 <body>
-<h1>Cadastro</h1>
+<h1>Cadastro - MedCare</h1>
 <form action="processar/processar_cadastro.php" method="post">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required>
